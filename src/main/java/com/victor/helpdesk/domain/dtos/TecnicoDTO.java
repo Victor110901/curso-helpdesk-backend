@@ -16,7 +16,7 @@ import com.victor.helpdesk.domain.enums.Perfil;
 
 public class TecnicoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected Integer id;
 	@NotNull(message = "O campo NOME é requerido")
 	protected String nome;
@@ -28,7 +28,7 @@ public class TecnicoDTO implements Serializable {
 	@NotNull(message = "O campo SENHA é requerido")
 	protected String senha;
 	protected Set<Integer> perfis = new HashSet<>();
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 
@@ -104,6 +104,5 @@ public class TecnicoDTO implements Serializable {
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
-	
+
 }

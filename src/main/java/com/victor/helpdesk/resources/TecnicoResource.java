@@ -26,23 +26,23 @@ import com.victor.helpdesk.services.TecnicoService;
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
-	
+
 	@Autowired
 	private TecnicoService service;
-	
-	@GetMapping(value = "/{id)")
+
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
 		Tecnico obj = service.findById(id);
 		return ResponseEntity.ok().body(new TecnicoDTO(obj));
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<TecnicoDTO>> findAll() {
 		List<Tecnico> list = service.findAll();
 		List<TecnicoDTO> listDTO = list.stream().map(obj -> new TecnicoDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
-	
+
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@PostMapping
 	public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO objDTO) {
@@ -61,8 +61,8 @@ public class TecnicoResource {
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<TecnicoDTO> delete(@PathVariable Integer id) {
-		service.delete(id);
+		service.delete(id); 
 		return ResponseEntity.noContent().build();
 	}
-	
+
 }

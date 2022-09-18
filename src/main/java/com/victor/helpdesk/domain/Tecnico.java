@@ -14,19 +14,19 @@ import com.victor.helpdesk.domain.enums.Perfil;
 @Entity
 public class Tecnico extends Pessoa {
 	private static final long serialVersionUID = 1L;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
 	public Tecnico() {
 		super();
-		addPerfil(Perfil.TECNICO);
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		addPerfil(Perfil.TECNICO);
+		addPerfil(Perfil.CLIENTE);
 	}
 	
 	public Tecnico(TecnicoDTO obj) {
@@ -47,6 +47,5 @@ public class Tecnico extends Pessoa {
 	public void setChamados(List<Chamado> chamados) {
 		this.chamados = chamados;
 	}
-	
-	
+
 }
