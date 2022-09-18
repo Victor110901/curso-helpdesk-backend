@@ -12,4 +12,3 @@ public class ObjectnotFoundException extends RuntimeException {
 	}
 
 }
-

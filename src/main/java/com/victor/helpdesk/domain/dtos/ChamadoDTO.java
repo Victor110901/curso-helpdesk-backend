@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.victor.helpdesk.domain.Chamado;
 
-public class ChamadoDTO implements Serializable{
+public class ChamadoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
@@ -24,19 +24,18 @@ public class ChamadoDTO implements Serializable{
 	private String titulo;
 	@NotNull(message = "O campo OBSERVAÇÕES é requerido")
 	private String observacoes;
-	@NotNull(message = "O campo TÉCNICO é requerido")
+	@NotNull(message = "O campo TECNICO é requerido")
 	private Integer tecnico;
 	@NotNull(message = "O campo CLIENTE é requerido")
 	private Integer cliente;
 	private String nomeTecnico;
 	private String nomeCliente;
-	
+
 	public ChamadoDTO() {
 		super();
 	}
-	
+
 	public ChamadoDTO(Chamado obj) {
-		super();
 		this.id = obj.getId();
 		this.dataAbertura = obj.getDataAbertura();
 		this.dataFechamento = obj.getDataFechamento();
@@ -46,8 +45,8 @@ public class ChamadoDTO implements Serializable{
 		this.observacoes = obj.getObservacoes();
 		this.tecnico = obj.getTecnico().getId();
 		this.cliente = obj.getCliente().getId();
-		this.nomeTecnico = obj.getCliente().getNome();
-		this.nomeCliente = obj.getTecnico().getNome();
+		this.nomeCliente = obj.getCliente().getNome();
+		this.nomeTecnico = obj.getTecnico().getNome();
 	}
 
 	public Integer getId() {
@@ -137,6 +136,5 @@ public class ChamadoDTO implements Serializable{
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	
-	
+
 }

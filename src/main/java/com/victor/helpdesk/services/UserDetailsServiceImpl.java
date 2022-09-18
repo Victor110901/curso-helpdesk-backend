@@ -13,11 +13,11 @@ import com.victor.helpdesk.repositories.PessoaRepository;
 import com.victor.helpdesk.security.UserSS;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
-
+public class UserDetailsServiceImpl implements UserDetailsService{
+	
 	@Autowired
 	private PessoaRepository repository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Optional<Pessoa> user = repository.findByEmail(email);

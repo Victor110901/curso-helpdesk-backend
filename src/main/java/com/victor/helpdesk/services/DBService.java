@@ -17,7 +17,7 @@ import com.victor.helpdesk.repositories.PessoaRepository;
 
 @Service
 public class DBService {
-	
+
 	@Autowired
 	private ChamadoRepository chamadoRepository;
 	@Autowired
